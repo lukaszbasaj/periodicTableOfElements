@@ -6,16 +6,18 @@ document.querySelector('main').appendChild(ul);
 table.forEach(renderPeriodicTable);
 
 function renderPeriodicTable(element) {
-    let li = document.createElement('li');
-    let abbr = document.createElement('abbr');
+    const li = document.createElement('li');
+    const abbr = document.createElement('abbr');
+    const sub = document.createElement('sub');
     abbr.setAttribute('title', `${element.name}`);
     abbr.innerHTML = `${element.symbol}`;
-    let elName = `${element.name}`;
-    let atomicMass = Math.floor(`${element.atomic_mass}`);
-    li.setAttribute('class', `${element.name}`);
+    const elName = `${element.name}`;
+    const atomicMass = Math.floor(`${element.atomic_mass}`, -1);
+    const subValue = `${atomicMass}`;
+    li.setAttribute('class', `${element.name}${` `}${element.category}`);
     ul.appendChild(li);
     li.appendChild(abbr);
-    li.innerHTML =`${li.innerHTML}${` `}${elName}${` `}${atomicMass}`;
-    
+    li.innerHTML =`${li.innerHTML}${` `}${elName}`;
+    li.appendChild(sub).innerHTML = `${subValue}`;
 }
 
