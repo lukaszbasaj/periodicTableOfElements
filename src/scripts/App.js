@@ -14,16 +14,15 @@ import { table } from '../assets/data.js';
             const abbr = document.createElement('abbr');
             const sub = document.createElement('sub');
             const atomicMass = Math.floor(`${element.atomic_mass}`);
-            const subValue = `${atomicMass}`;
             const elName = `${li.innerHTML}${element.symbol}`;
             abbr.setAttribute('title', `${element.name}`);
             abbr.innerHTML = `${element.symbol}`;
-            li.setAttribute('class', `element ${element.name.toLowerCase()}${` `}${element.phase.toLowerCase()}${` `}${element.category}`);
+            li.setAttribute('class', `element ${element.name.toLowerCase()}${` `}phase__${element.phase.toLowerCase()}${` `}${element.category}`);
         ol.appendChild(li);
         li.appendChild(dl);
         dl.appendChild(dt);
         dt.appendChild(abbr).innerHTML = `${elName}`;
         dl.appendChild(dd).innerHTML = `${element.summary}`;
-        dl.appendChild(sub).innerHTML = `${subValue}`;
+        dl.appendChild(sub).innerHTML = `${atomicMass}`;
     }
 })();
